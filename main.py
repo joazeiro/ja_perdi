@@ -1,6 +1,5 @@
 import sys, pygame
-import button
-import map
+import button, map, player
 
 pygame.init()
 
