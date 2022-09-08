@@ -1,0 +1,1 @@
+1. When user press ESC --> return to menu (game paused)
