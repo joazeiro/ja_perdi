@@ -8,7 +8,7 @@ class Player():
         self.rect.x = x
         self.rect.y = y
         self.vel_y = 0
-        self.jumped = False
+        #self.jumped = False
 
     def update(self):
         dx = 0
