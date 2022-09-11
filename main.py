@@ -8,6 +8,7 @@ width = 800
 height = 600
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Not PhotoMath")
+clock = pygame.time.Clock()
 
 font = pygame.font.SysFont("arialblack", 40)
 font_color = (255, 255, 255)
@@ -46,6 +47,9 @@ def make_grid():
         pygame.draw.line(screen, (255, 255, 255), (0, line * tile_size), (width, line * tile_size))
         pygame.draw.line(screen, (255, 255, 255), (line * tile_size, 0), (line * tile_size, height))
 
+def generate_equation():
+    pass
+
 # loop that makes the game run until the user exits
 while(1):
     #screen.fill((52, 78, 91))
@@ -82,4 +86,5 @@ while(1):
 
 
     pygame.display.update()
+    clock.tick(60)
 
