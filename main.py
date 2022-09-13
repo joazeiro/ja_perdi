@@ -1,5 +1,6 @@
 import sys, pygame
 import button, map, player
+from random import randint
 
 pygame.init()
 
@@ -9,6 +10,8 @@ height = 600
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Not PhotoMath")
 clock = pygame.time.Clock()
+game_icon = pygame.image.load("ja_perdi/images/game_icon.png")
+pygame.display.set_icon(game_icon)
 
 font = pygame.font.SysFont("arialblack", 40)
 font_color = (255, 255, 255)
@@ -38,7 +41,7 @@ in_menu = True
 menu_state = "main"
 
 # function used to print text (might not need it)
-def text(text, font, color, x, y):
+def write_text(text, font, color, x, y):
     img = font.render(text, True, color)
     screen.blit(img, (x,y))
 
@@ -47,7 +50,52 @@ def make_grid():
         pygame.draw.line(screen, (255, 255, 255), (0, line * tile_size), (width, line * tile_size))
         pygame.draw.line(screen, (255, 255, 255), (line * tile_size, 0), (line * tile_size, height))
 
-def generate_equation():
+def generate_equation_add():
+    value1 = randint(1,1000)
+    value2 = randint(1,1000)
+
+    write_text("{value1} + {value2} = ?", font, font_color, 700, 50)
+
+    result = value1 + value2
+    return result
+
+def generate_equation_sub():
+    value1 = randint(1,1000)
+    value2 = randint(1,1000)
+
+    write_text("{0} - {1} = ?".format(max(value1, value2), min(value1, value2)), font, font_color, 700, 50)
+
+    result = value1 - value2
+    return result
+
+def generate_equation_mult():
+    value1 = randint(1,100)
+    value2 = randint(1,100)
+
+    write_text("{value1} * {value2} = ?", font, font_color, 700, 50)
+
+    result = value1 * value2
+    return result
+
+def generate_equation_div():
+    value1 = randint(1,1000)
+    value2 = randint(1,1000)
+
+    write_text("{0} - {1} = ?".format(max(value1, value2), min(value1, value2)), font, font_color, 700, 50)
+
+    result = value1 / value2
+    return result
+
+def menu():
+    pass
+
+def options_menu():
+    pass
+
+def audio_menu():
+    pass
+
+def video_menu():
     pass
 
 # loop that makes the game run until the user exits
