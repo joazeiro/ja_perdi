@@ -10,19 +10,19 @@ height = 600
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Not PhotoMath")
 clock = pygame.time.Clock()
-game_icon = pygame.image.load("ja_perdi/images/game_icon.png")
+game_icon = pygame.image.load("images/game_icon.png")
 pygame.display.set_icon(game_icon)
 
 font = pygame.font.SysFont("arialblack", 40)
 font_color = (255, 255, 255)
 
 # loading all images for buttons
-resume_game_button_img = pygame.image.load("ja_perdi/images/button_resume.png").convert_alpha()
-video_game_button_img = pygame.image.load("ja_perdi/images/button_video.png").convert_alpha()
-quit_game_button_img = pygame.image.load("ja_perdi/images/button_quit.png").convert_alpha()
-options_game_button_img = pygame.image.load("ja_perdi/images/button_options.png").convert_alpha()
-back_game_button_img = pygame.image.load("ja_perdi/images/button_back.png").convert_alpha()
-audio_game_button_img = pygame.image.load("ja_perdi/images/button_audio.png").convert_alpha()
+resume_game_button_img = pygame.image.load("images/button_resume.png").convert_alpha()
+video_game_button_img = pygame.image.load("images/button_video.png").convert_alpha()
+quit_game_button_img = pygame.image.load("images/button_quit.png").convert_alpha()
+options_game_button_img = pygame.image.load("images/button_options.png").convert_alpha()
+back_game_button_img = pygame.image.load("images/button_back.png").convert_alpha()
+audio_game_button_img = pygame.image.load("images/button_audio.png").convert_alpha()
 
 # creating the instance of the buttons
 resume_button = button.Button(304, 200, resume_game_button_img, 1)

@@ -1,5 +1,6 @@
 import pygame
 import button
+import game
 
 # NOT READY
 
@@ -34,3 +35,8 @@ class MainMenu(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         
+    def run_menu(self):
+        self.run_display = True
+
+        while self.run_display:
+            self.game.screen.fill((168, 50, 245))

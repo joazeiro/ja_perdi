@@ -20,7 +20,7 @@ pygame.display.set_caption('Level Editor')
 
 #define game variables
 ROWS = 16
-MAX_COLS = 150
+MAX_COLS = 20
 TILE_SIZE = SCREEN_HEIGHT // ROWS
 TILE_TYPES = 21
 level = 0
@@ -32,19 +32,19 @@ scroll_speed = 1
 
 
 #load images
-pine1_img = pygame.image.load('ja_perdi/img/Background/pine1.png').convert_alpha()
-pine2_img = pygame.image.load('ja_perdi/img/Background/pine2.png').convert_alpha()
-mountain_img = pygame.image.load('ja_perdi/img/Background/mountain.png').convert_alpha()
-sky_img = pygame.image.load('ja_perdi/img/Background/sky_cloud.png').convert_alpha()
+pine1_img = pygame.image.load('img/Background/pine1.png').convert_alpha()
+pine2_img = pygame.image.load('img/Background/pine2.png').convert_alpha()
+mountain_img = pygame.image.load('img/Background/mountain.png').convert_alpha()
+sky_img = pygame.image.load('img/Background/sky_cloud.png').convert_alpha()
 #store tiles in a list
 img_list = []
 for x in range(TILE_TYPES):
-	img = pygame.image.load(f'ja_perdi/img/tile/{x}.png').convert_alpha()
+	img = pygame.image.load(f'img/tile/{x}.png').convert_alpha()
 	img = pygame.transform.scale(img, (TILE_SIZE, TILE_SIZE))
 	img_list.append(img)
 
-save_img = pygame.image.load('ja_perdi/img/save_btn.png').convert_alpha()
-load_img = pygame.image.load('ja_perdi/img/load_btn.png').convert_alpha()
+save_img = pygame.image.load('img/save_btn.png').convert_alpha()
+load_img = pygame.image.load('img/load_btn.png').convert_alpha()
 
 
 #define colours
@@ -62,8 +62,8 @@ for row in range(ROWS):
 	world_data.append(r)
 
 #create ground
-for tile in range(0, MAX_COLS):
-	world_data[ROWS - 1][tile] = 0
+#for tile in range(0, MAX_COLS):
+	#world_data[ROWS - 1][tile] = 0
 
 
 #function for outputting text onto the screen
@@ -73,14 +73,14 @@ def draw_text(text, font, text_col, x, y):
 
 
 #create function for drawing background
-def draw_bg():
-	screen.fill(GREEN)
-	width = sky_img.get_width()
-	for x in range(4):
-		screen.blit(sky_img, ((x * width) - scroll * 0.5, 0))
-		screen.blit(mountain_img, ((x * width) - scroll * 0.6, SCREEN_HEIGHT - mountain_img.get_height() - 300))
-		screen.blit(pine1_img, ((x * width) - scroll * 0.7, SCREEN_HEIGHT - pine1_img.get_height() - 150))
-		screen.blit(pine2_img, ((x * width) - scroll * 0.8, SCREEN_HEIGHT - pine2_img.get_height()))
+#def draw_bg():
+	#screen.fill(GREEN)
+	#width = sky_img.get_width()
+	#for x in range(4):
+		#screen.blit(sky_img, ((x * width) - scroll * 0.5, 0))
+		#screen.blit(mountain_img, ((x * width) - scroll * 0.6, SCREEN_HEIGHT - mountain_img.get_height() - 300))
+		#screen.blit(pine1_img, ((x * width) - scroll * 0.7, SCREEN_HEIGHT - pine1_img.get_height() - 150))
+		#screen.blit(pine2_img, ((x * width) - scroll * 0.8, SCREEN_HEIGHT - pine2_img.get_height()))
 
 #draw grid
 def draw_grid():
@@ -122,7 +122,7 @@ while run:
 
 	clock.tick(FPS)
 
-	draw_bg()
+	#draw_bg()
 	draw_grid()
 	draw_world()
 
@@ -132,7 +132,7 @@ while run:
 	#save and load data
 	if save_button.draw(screen):
 		#save level data
-		with open(f'ja_perdi/level{level}_data.csv', 'w', newline='') as csvfile:
+		with open(f'level{level}_data.csv', 'w', newline='') as csvfile:
 			writer = csv.writer(csvfile, delimiter = ',')
 			for row in world_data:
 				writer.writerow(row)
