@@ -144,7 +144,7 @@ while run:
 		#load in level data
 		#reset scroll back to the start of the level
 		scroll = 0
-		with open(f'ja_perdi/level{level}_data.csv', newline='') as csvfile:
+		with open(f'level{level}_data.csv', newline='') as csvfile:
 			reader = csv.reader(csvfile, delimiter = ',')
 			for x, row in enumerate(reader):
 				for y, tile in enumerate(row):
